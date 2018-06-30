@@ -9,11 +9,53 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Top Message Bar and choose Characters -->
+    <header>
+        <div id="message-board" class="header-div disappear">
+            <h1>Anime Battle Royal</h1>
+        </div>
 
-        
+        <div id="chara-select" class="header-div">
+            <img src="assets/images/mini/aa_cardcaptor1.png" alt="1" class="player">
+            <img src="assets/images/mini/aa_digimon.png" alt="2" class="player">
+            <img src="assets/images/mini/aa_future-diary.png" alt="3" class="player">
+            <img src="assets/images/mini/aa_magi1.png" alt="4" class="player">
+        </div>
+    </header>
+    
+
+
+
+    <!-- Playing Field -->
+    <div class="container">
+        <section>
+            <div id="left-field" class="field-div clear">
+                <div id="player-chara" class="chara">
+                    <img src="assets/images/mini/aa_naruto2.png" id="player-img" class="in-play">
+                </div>
+            </div>
+
+            <div id="right-field" class="field-div clear">
+                <div id="comp-chara" class="chara">
+                    <img src="assets/images/mini/aa_pokemon2.png" id="comp-img" class="in-play">
+                </div>
+            </div>
+        </section>
     </div>
 
+
+
+
+
+    <!-- Buttons -->
+    <footer>
+        <div class="wrapper">
+            <div class="container-footer">
+              <a href="#" title="Button push purple" class="button btnPush btnPurple">Attack</a>
+              <a href="#" title="Button push lightblue" class="button btnPush btnLightBlue">Defend</a>
+              <a href="#" title="Button push blue/green" class="button btnPush btnBlueGreen clear">Heal (<span id="heal-num">0</span>)</a>
+            </div>
+    </footer>
     <!-- JQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- My JS -->
