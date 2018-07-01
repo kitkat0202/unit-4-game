@@ -27,7 +27,7 @@ let playerIsChosen = false;
 //var computerChoice;
 let computerHealth = 0;
 let computerAttack = 0;
-let computerOrgAttack = 0;
+// let computerOrgAttack = 0;
 let computerIsChosen = false;
 
 
@@ -36,8 +36,8 @@ let computerIsChosen = false;
 
 ///////////////  FUNCTIONS   /////////////////////////////
 function addToCharaSelect() {
-    for (var i = 0; i < characters.length; i++) {
-        $("#chara-select").append($("<div>").attr({class: "chara-slot", id: `chara-${i}`, value: i}));
+    $(".chara-slot").removeClass("disappear")
+    for (var i = 0; i < 4; i++) {
         $(`#chara-${i}`).append($("<img>").attr("src", characters[i].image))
         $(`#chara-${i}`).append($("<p>").html(characters[i].name))
         $(`#chara-${i}`).append($("<p>").html(`Health: ${characters[i].health}`).addClass("health"))
@@ -55,13 +55,14 @@ function clearAll() {
     $("#player-chara, #comp-chara").addClass("disappear");
 
     //appear in header
-    $("#chara-select").empty();
+    $("#message-board").removeClass("disappear");
+    $("#message-board").html($("<h1>").text("Welcome to Unit-4-Game")).slideDown()
+    $(".chara-slot").addClass("disappear");
+    $(".chara-slot").empty();
     
-
-
-    //add atk btn
-    $(".reset-btn").addClass("disappear")
-    $(".atk-btn").removeClass("disappear")
+    //add start btn
+    $(".reset-btn").addClass("disappear");
+    $(".start-btn").removeClass("disappear");
 
     //clear stats
     countTurns = 0;
@@ -79,18 +80,33 @@ function clearAll() {
 
 
 ///////////////  GAME PLAY  //////////////////////////////
-addToCharaSelect();
+
 
 
 ///////////// on-click functions /////////////////////////
 
 // Game Start
 $(".start").on("click", function () {
-    
+    $("#message-board").slideUp()
     $(".start-btn").addClass("disappear");
     $(".atk-btn").removeClass("disappear");
 
+    setTimeout(function() {
+        $("#message-board").html($("<h1>").text("Please choose a character")).slideDown()
+    }, 450);
+
+    setTimeout(function() {
+        $("#message-board").addClass("disappear");
+    }, 1500);
+
+    setTimeout(function() {
+        $("#chara-select").removeClass("disappear");
+        addToCharaSelect();
+    }, 2000);
 });
+
+
+
 
 // CHOOSE CHARACTER
 $(".chara-slot").on("click", function () {
@@ -113,8 +129,10 @@ $(".chara-slot").on("click", function () {
         $("#comp-attack").text(computerAttack);
 
         //remove player from header
-        $(this).fadeOut()
+        $(this).addClass("disappear")
         computerIsChosen = true
+
+        // Message board appears again
         
         
     } else {
@@ -130,7 +148,7 @@ $(".chara-slot").on("click", function () {
         $("#player-attack").text(playerAttack);
 
         //remove player from header
-        $(this).fadeOut()
+        $(this).addClass("disappear")
         playerIsChosen = true;
     }
     
@@ -140,7 +158,7 @@ $(".chara-slot").on("click", function () {
 
 
 
-// on click attack button and lose and win
+// ATTACK button and lose and win
 $(".atk").on("click", function () {
     if (!computerIsChosen || playerHealth <= 0 || computerHealth <= 0) {
         return false
@@ -185,10 +203,10 @@ $(".atk").on("click", function () {
 
 });
 
+
+// RESET Button
 $(".reset").on("click", function () {
     clearAll();
-    $(".reset-btn").addClass("disappear")
-    $(".start-btn").removeClass("disappear")
 });
 
 
