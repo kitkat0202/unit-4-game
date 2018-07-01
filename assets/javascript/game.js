@@ -1,6 +1,11 @@
 $(function() {
 
 ///////////////  ARRAY / OBJECTS  ////////////////////////
+let group1
+
+
+
+
 let characters = [
     // {name: "KERO", image: "assets/images/mini/aa_cardcaptor1.png", health: 99999, attack: 500},
     // {name: "TERRIERMON", image: "assets/images/mini/aa_digimon.png", health: 500, attack: 5},
@@ -51,18 +56,21 @@ let randNum = function(min, max) {
 }
 
 function clearAll() {
-    // disappear from field
-    $("#player-chara, #comp-chara").addClass("disappear");
-
-    //appear in header
+    //Header Reset
     $("#message-board").removeClass("disappear");
     $("#message-board").html($("<h1>").text("Welcome to Unit-4-Game")).slideDown()
     $(".chara-slot").addClass("disappear");
     $(".chara-slot").empty();
+
+
+    // Field Reset
+    $("#player-chara, #comp-chara").addClass("disappear");
+  
     
-    //add start btn
+    //Footer Reset
     $(".reset-btn").addClass("disappear");
     $(".start-btn").removeClass("disappear");
+    $(".info-center").empty();
 
     //clear stats
     countTurns = 0;
@@ -167,8 +175,8 @@ $(".atk").on("click", function () {
         playerAttack += playerOrgAttack;
         playerHealth -= computerAttack;
         $(".info-center").empty();
-        $(".info-center").append($("<p>").text(`Your attach lowered Enemy health to ${computerHealth}`));
-        $(".info-center").append($("<p>").text(`Enemy attach lowered Your health to ${computerHealth}`));
+            $(".info-center").append($("<p>").text(`Your attach lowered Enemy health to ${computerHealth}`));
+            $(".info-center").append($("<p>").text(`Enemy attach lowered Your health to ${playerHealth}`));
     }
 
     
@@ -179,7 +187,9 @@ $(".atk").on("click", function () {
 
 
     if (computerHealth <= 0) {
-        $(".info-center").html($("<p>").text(`Enemy has lost.. Please choose your next apponent`));
+        $(".info-center").empty();
+        $(".info-center").html($(`<p>Enemy has lost . . . <br> Please choose your next apponent </p>`));
+        
         $("#comp-chara").addClass("disappear");
         countTurns +=1
         computerIsChosen = false;
@@ -188,11 +198,14 @@ $(".atk").on("click", function () {
             $(".win-score").html(`${win}`);
             $(".atk-btn").addClass("disappear");
             $(".reset-btn").removeClass("disappear");
+            $(".info-center").html($(`<p>YOU HAVE WON!</p>`));
         }
     }
 
     if (playerHealth <= 0) {
-        $(".info-center").append($("<p>").text(`Enemy attach lowered Your health to ${computerHealth}`));
+        $(".info-center").empty();
+        $(".info-center").html($("<p>").text(`Enemy has defeted you`));
+        
         $("#player-chara").addClass("disappear");
         lose++
         $(".lose-score").html(`${lose}`)

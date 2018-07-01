@@ -168,37 +168,42 @@ footer {
     bottom: 0;
     padding: var(--padd);
     clear: both;
+    border-radius: 5px;
+    box-shadow: 0 0 15px 0 #fff,
+                inset 0 0 15px 0 #fff;
 }
 
 .bottom {
     width: 380px;
     height: 95%;
     border-radius: 5px;
+    top: 10%;
     color: #fff;
     padding: 10px;
-    font-size: 25px;
+    font-size: 35px;
     line-height: 40px;
 }
 
 .info-center {
-    /* background-color: #fff; */
+    height: 50%;
     position: absolute;
-    top: 0;
     right: 25px;
-    box-shadow: 0 0 15px 0 #fff,
-                inset 0 0 15px 0 #fff;
 }
 
 .info-center p {
-    padding: 10px;
+    font-size: 20px;
+    padding: 8px;
 }
 
 
 .setting {
     position: absolute;
-    top: 0;
     left: 25px;
     padding-left: 35px;
+}
+
+.setting h3 {
+    line-height: 70px;
 }
 
 #reset {
