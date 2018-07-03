@@ -1,19 +1,11 @@
 $(function() {
 
 ///////////////  ARRAY / OBJECTS  ////////////////////////
-let group1
 
 
 
 
-let characters = [
-    // {name: "KERO", image: "assets/images/mini/aa_cardcaptor1.png", health: 99999, attack: 500},
-    // {name: "TERRIERMON", image: "assets/images/mini/aa_digimon.png", health: 500, attack: 5},
-    {name: "YUNO GASAI", image: "assets/images/mini/aa_future-diary.png", health: 400, attack: 5},
-    {name: "MEW TWO", image: "assets/images/mini/aa_pokemon4.png", health: 400, attack: 5},
-    {name: "KAKASHI", image: "assets/images/mini/aa_naruto2.png", health: 300, attack: 5},
-    {name: "LING YAO", image: "assets/images/mini/dd_FMA3.png", health: 300, attack: 5}
-]
+let characters = []
 
 ///////////////  VARIABLES   /////////////////////////////
 let countTurns = 0;
@@ -21,7 +13,7 @@ let win = 0;
 let lose = 0;
 
 
-//var playerChoice; 
+
 let playerHealth = 0;
 let playerAttack = 0;
 let playerOrgAttack = 0;
@@ -29,37 +21,35 @@ let playerIsChosen = false;
 
 
 
-//var computerChoice;
 let computerHealth = 0;
 let computerAttack = 0;
-// let computerOrgAttack = 0;
 let computerIsChosen = false;
 
 
-
-
-
 ///////////////  FUNCTIONS   /////////////////////////////
+let randNum = function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
 function addToCharaSelect() {
     $(".chara-slot").removeClass("disappear")
     for (var i = 0; i < 4; i++) {
         $(`#chara-${i}`).append($("<img>").attr("src", characters[i].image))
         $(`#chara-${i}`).append($("<p>").html(characters[i].name))
         $(`#chara-${i}`).append($("<p>").html(`Health: ${characters[i].health}`).addClass("health"))
+        $(`#chara-${i}`).append($("<p>").html(`Attack: ${characters[i].attack}`).addClass("health"))
     }
 };
 
 
 
-let randNum = function(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 function clearAll() {
     //Header Reset
-    $("#message-board").removeClass("disappear");
-    $("#message-board").html($("<h1>").text("Welcome to Unit-4-Game")).slideDown()
     $(".chara-slot").addClass("disappear");
+    $("#message-board").html($("<h1>").text("Welcome to Unit-4-Game"));
+    $("#message-board").removeClass("disappear").slideDown();
     $(".chara-slot").empty();
 
 
@@ -73,6 +63,7 @@ function clearAll() {
     $(".info-center").empty();
 
     //clear stats
+    characters = []
     countTurns = 0;
 
     playerHealth = 0;
@@ -87,30 +78,63 @@ function clearAll() {
 
 
 
-///////////////  GAME PLAY  //////////////////////////////
-
 
 
 ///////////// on-click functions /////////////////////////
 
 // Game Start
 $(".start").on("click", function () {
-    $("#message-board").slideUp()
-    $(".start-btn").addClass("disappear");
-    $(".atk-btn").removeClass("disappear");
+    let p1 = new Promise((resolve, reject) => {
+        for (var i = 0; i < 4; i++) {
+            var id = randNum(1, 151)
+            
+            fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+                .then(res => res.json())
+                .then(data => {
+                    var randName = data.name.toUpperCase()
+                    var ranImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`
+                    var ranHealth
+                    var ranAttach
+                    var ranID = parseInt(data.id)
+                    if ((ranID > 143 || ranID === 3 || ranID === 6 || ranID === 9 || ranID === 130) && ranID < 152) {
+                        ranHealth = randNum(150, 200); //legandary pokemon
+                        ranAttach = randNum(11, 25);
+                    } else if (ranID === 129 ){
+                        ranHealth = randNum(50, 90); //magikarp
+                        ranAttach = 1;
+                    } else {
+                        ranHealth = randNum(100, 150); //all other pokemon
+                        ranAttach = randNum(2, 10);
+                    }
+                    thisPokemon = {name: randName, image: ranImage, health: ranHealth, attack: ranAttach};
+                    characters.push(thisPokemon);
+            })
 
-    setTimeout(function() {
-        $("#message-board").html($("<h1>").text("Please choose a character")).slideDown()
-    }, 450);
+        }
+        resolve("success!")
 
-    setTimeout(function() {
-        $("#message-board").addClass("disappear");
-    }, 1500);
+    })
 
-    setTimeout(function() {
-        $("#chara-select").removeClass("disappear");
-        addToCharaSelect();
-    }, 2000);
+    p1.then((x) => {
+        console.log(x);
+        $("#message-board").slideUp()
+        $(".start-btn").addClass("disappear");
+        $(".atk-btn").removeClass("disappear");
+
+        setTimeout(function() {
+            $("#message-board").html($("<h1>").text("Please choose a character")).slideDown()
+        }, 950);
+
+        setTimeout(function() {
+            $("#message-board").slideUp()
+        }, 4000);
+
+        setTimeout(function() {
+            
+            $("#chara-select").removeClass("disappear");
+            addToCharaSelect();
+        }, 5000);
+    })
 });
 
 
@@ -139,8 +163,6 @@ $(".chara-slot").on("click", function () {
         //remove player from header
         $(this).addClass("disappear")
         computerIsChosen = true
-
-        // Message board appears again
         
         
     } else {
@@ -188,17 +210,17 @@ $(".atk").on("click", function () {
 
     if (computerHealth <= 0) {
         $(".info-center").empty();
-        $(".info-center").html($(`<p>Enemy has lost . . . <br> Please choose your next apponent </p>`));
-        
         $("#comp-chara").addClass("disappear");
         countTurns +=1
-        computerIsChosen = false;
+        
         if (countTurns === characters.length - 1) {
             win++
             $(".win-score").html(`${win}`);
             $(".atk-btn").addClass("disappear");
             $(".reset-btn").removeClass("disappear");
             $(".info-center").html($(`<p>YOU HAVE WON!</p>`));
+        } else {
+            computerIsChosen = false;
         }
     }
 
