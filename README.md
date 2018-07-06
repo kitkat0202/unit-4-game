@@ -11,19 +11,22 @@ https://kitkat0202.github.io/unit-4-game/
 
 <br/><br/><br/><br/>
 # Finished Product:
-<img src="assets/images/start-pg.jpg" alt="Finished Index"/><br/><br/><br/><br/>
-<img src="assets/images/play-pg.jpg" alt="Finished Index"/>
+<img src="assets/images/start-pg.jpg" alt="Finished Index" width="500px"/><br/><br/><br/><br/>
+<img src="assets/images/play-pg1.jpg" alt="Finished Index" width="500px"/><br/><br/><br/><br/>
+<img src="assets/images/play-pg2.jpg" alt="Finished Index" width="500px"/>
 
 <br/><br/><br/><br/>
 # Project INFO:
 
 - Press `START` button to start game
 
-- Will need to wait for the game to getch the pokemon name and image from the API (it currently only contains the first 151 pokemon but you can add more if you change the number at line 81 -- I'm pretty sure the API supports all the pokemon)
+- WARMING: there is sound and videos attached to this game
+  --ALL IDEAS, IMAGES, SOUNDS, VIDEOS ARE NOT OWNED BY ME THEY WERE PROVIDED BY THE AMAZING PEOPLE ON YOUTUBE
 
 - The Health and Attach power are random and not based on the Pokemon (so please don't choose what looks the strongest)
 
-- Your win and lose score is found at the bottom left and the status updates are on the bottom right
+- The point of the game is to choose what you think is the pokemon that can defete the rest.
+
 
 
 

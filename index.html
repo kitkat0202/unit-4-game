@@ -4,84 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RPG Anime Free For All</title>
+    <title>Pokemon Battle</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Catamaran|Gugi" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- Top Message Bar and choose Characters -->
-    <header>
-        <div id="message-board" class="header-div ">
-            <h1>Welcome to Unit-4-Game</h1>
+    <div class="container clear">
+        <!-- Game Stage -->
+        <div class="inner-left">
+            <div id="messages">
+                <h1>Welcome to Unit-4-Game</h1>
+            </div>
+
+            <div class="click-start">
+                <h3>Click Start Button --></h3>
+            </div>
+
+            <div class="score clear disappear">
+                <h3 class="win-head">Win: <span class="win-score">0</span></h3>
+                <h3 class="lose-head">Lose: <span class="lose-score">0</span></h3>
+            </div>
+            
+
+            <!-- start screen -->
+            <div class="main-stage nintendo dark">
+                <p>Nintendo</p>
+            </div>
+
+
+            <!-- video screen -->
+            <div class="main-stage video disappear">
+                <audio id="gameboy-on">
+                    <source src="assets/audio/startup_sound.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <video id="poke-red">
+                    <source src="assets/video/pokemon_red.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+
+            <!-- choosing screen -->
+            <div class="main-stage choosing disappear">
+                <h3>Choose your character...</h3>
+                    <div class="top">
+                        <div class="chara-slot" id="chara-0" value= "0"></div>
+                        <div class="chara-slot" id="chara-1" value= "1"></div>
+                        <div class="chara-slot" id="chara-2" value= "2"></div>
+                        <div class="chara-slot" id="chara-3" value= "3"></div>
+                    </div>
+            </div>
+
+
+            <!-- game screen -->
+            <div class="main-stage gameplay disappear">
+                <div class="battlefield">
+                    <div class="left-battle"></div>
+                    <div class="left-status clear"></div>
+
+                    <div class="right-battle"></div>
+                    <div class="right-status clear"></div>
+
+
+                    <div class="info-center"></div>
+                </div>
+
+                <div class="win-page disappear"><h3>Congradulation!</h3></div>
+                <div class="lose-page disappear"><h3>You Lose!</h3></div>
+            </div>
         </div>
 
-        <div id="chara-select" class="header-div disappear">
-            <div class="chara-slot disappear" id="chara-0" value= "0"></div>
-            <div class="chara-slot disappear" id="chara-1" value= "1"></div>
-            <div class="chara-slot disappear" id="chara-2" value= "2"></div>
-            <div class="chara-slot disappear" id="chara-3" value= "3"></div>
+
+        <!-- Green sides with the buttons -->
+        <div class="inner-right">
+            <h3>GAMEGIRL 
+                <span id="red">C</span>
+                <span id="purple">O</span>
+                <span id="green">L</span>
+                <span id="yellow">O</span>
+                <span id="blue">R</span>
+            </h3>
+            <div class="wrapper">
+                <div class="container-footer atk-btn">
+                    <a href="javascript:void(0)" title="Button" class="button atk">Attack</a>
+                    <!-- <a href="#" onclick="return false" title="Button" class="button atk">Attack</a> -->
+                </div>
+            </div>
+            <div class="bottom-btm clear">
+                <button id="start"> START </button>
+                <button id="reset">RESET</button>
+            </div>
+            <img src="assets/images/pikachu.png" alt="pikachu" id="pikaimg">
+            <button id="sound">Play / Stop</button>
         </div>
-    </header>
+        <audio id="bg-audio" loop>
+            <source src="assets/audio/lugias_song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+    </div>
     
 
-
-
-    <!-- Playing Field -->
-    <div class="container">
-        <section>
-            <div id="left-field" class="field-div clear">
-                <div id="player-chara" class="chara disappear">
-                    <img src="" id="player-img">
-                    <p class="name"></p>
-                    <p class="health">Health: <span id="player-health"></span></p>
-                    <p class="attack">Attack: <span id="player-attack"></span></p>
-                </div>
-            </div>
-
-            <div id="right-field" class="field-div clear">
-                <div id="comp-chara" class="chara disappear">
-                    <img src="" id="comp-img">
-                    <p class="name"></p>
-                    <p class="health">Health: <span id="comp-health"></span></p>
-                    <p class="attack">Attack: <span id="comp-attack"></span></p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-
-
-
-
-    <!-- Buttons and Info center-->
-    <footer>
-        <div class="setting bottom">
-            <h3 id="win">Win: <span class="win-score">0</span></h3>
-            <h3 id="lose">Lose: <span class="lose-score">0</span></h3>
-        </div>
-        <div class="wrapper">
-                <div class="container-footer start-btn">
-                        <a href="#" title="Button" class="button start">Start</a>
-                      </div>
-            <div class="container-footer atk-btn disappear">
-              <a href="#" title="Button" class="button atk">Attack</a>
-            </div>
-            <div class="container-footer reset-btn disappear">
-                <a href="#" title="Button" class="button reset">Reset</a>
-            </div>
-        </div>
-        <div class="info-center bottom">
-        </div>
-        
-    </footer>
-    <!-- JQuery Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- My JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="assets/javascript/game.js"></script>
-
-    <script>
-
-    </script>
 </body>
 </html>

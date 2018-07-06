@@ -6,8 +6,9 @@
     --marg: 20px;
     --shadow: 2px 2px 15px #000;
     --btn-bord: 5px solid;
-    --txt-shadow: 1px 1px 1px #000;
+    --txt-shadow: 1px 1px 3px #000;
     --trans: all 300ms ease-in-out;
+    --inner-color: #3b3b3b;
 
     --display: 'Gugi', cursive;
     --status: 'Catamaran', sans-serif;
@@ -20,12 +21,8 @@
 html, body {
     height: 100vh;
     overflow: hidden;
-    background-size: cover;
-    background-color: #272727;
     font-family: var(--status);
-    background-image: url(../images/bg8.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    color: #fff;
 }
 
 .disappear {
@@ -38,270 +35,489 @@ html, body {
     display: block;
 }
 
-
-
-
-
-
-
-/* //////////////////////////////////////////////////// */
-/* //////////////// HEADER //////////////////////////// */
-/* //////////////////////////////////////////////////// */
-
-/* Messages */
-header {
-    height: 30%;
-    text-align: center;
-}
-
-.header-div {
+.container {
     width: 100%;
     height: 100%;
-    margin: 0 auto;
-    padding: var(--padd);
+    background-color: #5ece3c;
 }
 
-.header-div h1 {
-    font-size: 50px;
+
+
+
+
+
+/* Game Screen */
+.inner-left {
+    float: left;
+    height: 94%;
+    width: 70%;
+    background-color: #272727;
+    border-radius: 30px;
+    margin: 1.5% 5px;
+}
+
+
+
+
+
+/* game screen top */
+#messages {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#messages h1 {
+    text-align: center;
     font-family: var(--display);
-    color: #fff;
+    font-size: 70px;
+    line-height: 100px;
+    letter-spacing: 5px;
+}
+
+.score {
+    width: 400px;
+    margin: 20px auto;
+    font-size: 35px;
+    letter-spacing: 3px;
+    font-family: var(--display);
+    position: relative;
+}
+
+.win-head {
+    float: left;
+}
+
+.lose-head {
+    float: right;
+}
+
+
+.click-start {
+    width: 500px;
+    margin: 20px auto;
+    font-size: 35px;
+    letter-spacing: 3px;
+    font-family: var(--display);
+    position: relative;
+    color: #da5a5a;
 }
 
 
 
 
-/* to center 4 pic only */
-#chara-select {
-    width: 1100px;
+
+/* Main battle stage */
+.main-stage {
+    width: 80%;
+    height: 70%;
+    background-color: #fffadc;
+    margin: 40px auto;
+    border-radius: 30px;
+    position: relative;
+}
+
+.dark {
+    background-color: var(--inner-color);
+}
+
+.light {
+    background-color: #fffadc;
+
+}
+
+.nintendo {
+    color:var(--inner-color);
+    font-family: var(--display);
+    font-size: 100px;
+    letter-spacing: 5px;
+    text-align: center;
+    line-height: 600%;
+}
+
+#poke-red {
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+
+.choosing h3{
+    text-align: center;
+    font-size: 50px;
+    line-height: 150px;
+    letter-spacing: 2px;
+    color: var(--inner-color);
+
+}
+
+.top {
+    position: absolute;
+    height: 30%;
+    width: 100%;
+    top: 30%;
 }
 
 .chara-slot {
-    width: 220px;
-    height: 200px;
+    width: 24%;
+    height: 100%;
     float: left;
-    margin: 6px 2%; /*  2% left right to center 4*/
-    color: #fff;
-    border-radius: 180px;
-    box-shadow: 0 0 30px 0 #ffffff9d,
-                inset 0 0 30px 0 #ffffff9d;
-    /* z-index: 99; */
+    margin: 0 4px;
 }
 
 .chara-slot img {
     height: 100%;
-    width: 60%;
+    margin-bottom: -10px;
 }
 
 .chara-slot p {
+    margin-left: 20%;
+    font-size: 18px;
     opacity: 0;
+    color: var(--inner-color);
     transition: all 300ms ease-in-out;
+}
+
+.chara-name {
+    font-weight: bold;
 }
 
 .chara-slot:hover p {
     opacity: 1;
 }
 
-
-
-/* //////////////////////////////////////////////////// */
-/* //////////////// MAIN STAGE //////////////////////// */
-/* //////////////////////////////////////////////////// */
-.container {
-    width: 100%;
-    min-height: 50%;
-    margin: 0 auto;
-    position: relative;
+.chara-slot:hover img {
+    box-shadow: 0 0 10px 0 #d6d6d6,
+                inset 0 0 30px 0 #b6b5b5;
+    border-radius: 100px;
 }
 
-section {
+
+
+
+
+
+/* shared properties */
+.left-status,
+.right-status {
+    width: 250px;
+    height: 100px;
     position: absolute;
-    height: 100%;
-    width: 100%;
-    /* background-color: #e0d994;
-    border: 10px inset #aca675; */
-    border-radius: 1px;
-}
-
-.field-div {
-    height: 100%;
-    width: 50%;
-    position: relative;
-}
-
-#left-field {
-    float: left;
-}
-
-#right-field {
-    float: right;
-}
-
-
-/* Character CSS */
-.chara {
-    position: absolute;
-    width: 240px;
-    height: 340px;
-    top: 20%;
-    left: 50%;
-    margin-left: -75px;
-    margin-top: -75px;
-    color: #fff;
-    font-size: 30px;
-}
-
-
-.chara img {
-    width: 100%;
-    height: 300px;
-}
-
-.chara .name {
-    margin-top: -30px;
-}
-
-.health,
-.attack {
-    font-size: 18px;
-}
-
-
-
-
-
-/* //////////////////////////////////////////////////// */
-/* //////////////// FOOTER //////////////////////////// */
-/* //////////////////////////////////////////////////// */
-footer {
-    position: relative;
-    height: 20%;
-    bottom: 0;
-    padding: var(--padd);
-    clear: both;
-    border-radius: 5px;
-    box-shadow: 0 0 15px 0 #fff,
-                inset 0 0 15px 0 #fff;
-}
-
-.bottom {
-    width: 380px;
-    height: 95%;
-    border-radius: 5px;
-    top: 10%;
-    color: #fff;
+    color: var(--inner-color);
     padding: 10px;
-    font-size: 35px;
+}
+
+.right-battle img,
+.left-battle img {
+    width: 100%;
+}
+
+.status-name {
+    font-weight: bold;
+    font-size: 25px;
     line-height: 40px;
 }
 
-.info-center {
-    height: 50%;
+.status-attack {
+    float: right;
+}
+
+.status-health {
+    float: left;
+}
+
+.health-bar {
+    width: 90%;
+    height: 5px;
+    background-color: #42d409;
+    border-radius: 10px;
+    margin-top: 25px;
+}
+
+
+
+
+
+/* ENENY */
+.right-battle {
+    width: 250px;
+    height: 250px;
     position: absolute;
-    right: 25px;
+    top: 0px;
+    right: 10px;
+}
+
+.right-status {
+    top: 120px;
+    right: 230px;
+    text-align: right;
+    border-left: 5px solid var(--inner-color);
+    border-bottom: 5px solid var(--inner-color);
+    border-radius: 30px
+}
+
+
+
+
+
+/* PLAYER */
+.left-battle {
+    width: 300px;
+    height: 250px;
+    position: absolute;
+    bottom: 28%;
+    left: 10px;
+}
+
+.left-status {
+    bottom: 35%;
+    left: 290px;
+    border-right: 5px solid var(--inner-color);
+    border-bottom: 5px solid var(--inner-color);
+    border-radius: 30px
+}
+
+.left-battle img {
+    bottom: 0;
+}
+
+
+
+.win-page,
+.lose-page {
+    width: 70%;
+    height: 150px;
+    border-radius: 30px;
+    background-color: #ffffffa6;
+    text-align: center;
+    font-size: 40px;
+    line-height: 120px;
+    font-weight: bold;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+}
+
+.win-page {
+    border: 8px solid #2b8dfd;
+    color:#2b8dfd;
+}
+
+.lose-page {
+    border: 8px solid #802d2d;
+    color:#802d2d;
+}
+
+
+
+
+
+
+.info-center {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 28%;
+    border-radius: 30px;
+    border: 4px dashed var(--inner-color);
+    padding: 20px 50px;
 }
 
 .info-center p {
-    font-size: 20px;
-    padding: 8px;
+    text-align: left;
+    font-size: 25px;
+    line-height: 40px;
+    color: var(--inner-color);
 }
 
 
-.setting {
-    position: absolute;
-    left: 25px;
-    padding-left: 35px;
+
+
+
+
+/* Game Controller */
+.inner-right {
+    float: right;
+    height: 100%;
+    width: 29%;
+    position: relative;
 }
 
-.setting h3 {
-    line-height: 70px;
+.inner-right h3 {
+    font-size: 40px;
+    padding: 35px 30px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-shadow: var(--txt-shadow);
+    margin-top: 50px;
 }
 
-#reset {
-    position: absolute;
-    bottom: 30px;
-    width: 120px;
-    height: 40px;
-    border-radius: 5px;
-    background-color: #383838;
-    border: 4px outset #686767;
-    color: #fff;
-    font-size: 20px;
-    transition: var(--trans);
+.inner-right h3 span {
+    letter-spacing: -18px;
+    font-weight: 900;
+    font-style: italic;
 }
 
-#reset:hover {
-    background-color: #fff;
-    color:  #383838;
-    border: 4px outset #cecece;
+#red {
+    color: #fa3e3e;
 }
 
-#reset:active {
-    border: none;
+#purple {
+    color: #a02ba0;
+}
+
+#green {
+    color: #5dfa02;
+}
+
+#yellow {
+    color: #e4e402;
+}
+
+#blue {
+    color: #2488fa;
 }
 
 .wrapper {
     width: 300px;
-    margin: 20px auto;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-left: -150px;
 }
 
 .container-footer {
-    padding-bottom: 40px;
-    padding-left: 9%;
-    padding-right: 7%;
+    width: 100%;
+    height: 200px;
 }
 
 a.button {
     display: block;
-    position: relative;
-    width: 200px;
-    margin: 20px auto;
+    width: 150px;
+    line-height: 60px;
+    margin: 0 auto;
     font-weight: 600;
     font-size: 30px;
     text-align: center;
-    line-height: 80px;
     color: #FFF;
-    border-radius: 7px;
+    border-radius: 20px;
     transition: var(--trans);
     text-decoration: none;
-
+    background: #666666;
+    box-shadow: 0px 10px 0px 0px #3b3b3b;
+    border: 4px outset #7c7c7c;
 }
 
 a.button:hover {
     text-shadow: 1px 1px 3px #000;
 }
 
-.start {
-    background: #6aca6a;
-    box-shadow: 0px 10px 0px 0px #468646;
-    border: 4px outset #7eee7e;
-}
-
-a.start:active {
-    margin-top: 30px;
+a.button:active {
+    margin-top: 15px;
     margin-bottom: 10px;
-    box-shadow: 0px 0px 0px 0px #468646;
+    box-shadow: 0px 0px 0px 0px #3b3b3b;
 }
 
-.atk {
-    background: #ca6a6a;
-    box-shadow: 0px 10px 0px 0px #5a2e2e;
-    border: 4px outset #fa8585;
+.bottom-btm {
+    position: absolute;
+    width: 300px;
+    top: 45%;
+    left: 50%;
+    margin-left: -150px;
 }
 
-a.reset:active {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    box-shadow: 0px 0px 0px 0px #5a2e2e;
+.inner-right button {
+    background-color: #3b3b3b;
+    border-radius: 50px;
+    color: #fff;
+    border: 2px solid #666666;
+    padding: 5px 30px;
+    font-family: var(--status);
+    font-size: 16px;
 }
 
-.reset {
-    background: #a8a8a8;
-    box-shadow: 0px 10px 0px 0px #5f5f5f;
-    border: 4px outset #d1d1d1;
+#start {
+    float: left;
 }
 
-a.reset:active {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    box-shadow: 0px 0px 0px 0px #5f5f5f;
+#reset {
+    float: right;
+}
+
+.inner-right button:active {
+    border: none;
+}
+
+#sound {
+    position: absolute;
+    bottom: 60px;
+    right: 50px;
+}
+
+#pikaimg {
+    width: 80%;
+    position: absolute;
+    bottom: 90px;
+    left: -130px;
+}
+
+@media screen and (max-width: 1350px)  { 
+    #messages h1 {
+        font-size: 50px;
+        line-height: 70px;
+        letter-spacing: 2px;
+    }
+
+    .score {
+        width: 300px;
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    .bottom-btm {
+        width: 250px;
+        top: 45%;
+        left: 50%;
+        margin-left: -125px;
+    }
+
+    #pikaimg {
+        width: 100%;
+        position: absolute;
+        bottom: 90px;
+        left: -80px;
+    }
+
+    .right-battle {
+        width: 120px;
+        height: 120px;
+        top: 90px;
+        right: 30px;
+    }
+
+    .right-status {
+        width: 150px;
+        height: 40px;
+        top: 170px;
+        right: 160px;
+    }
+
+
+    .left-battle {
+        width: 150px;
+        height: 120px;
+        position: absolute;
+        bottom: 28%;
+        left: 70px;
+        background-color: blue;
+    }
+    
+    .left-status {
+        background-color: blue;
+        width: 200px;
+        height: 50px;
+        position: absolute;
+        bottom: 30%;
+        left: 250px;
+    }
 }
