@@ -69,8 +69,8 @@ html, body {
 #messages h1 {
     text-align: center;
     font-family: var(--display);
-    font-size: 70px;
-    line-height: 100px;
+    font-size: 60px;
+    line-height: 70px;
     letter-spacing: 5px;
 }
 
@@ -154,12 +154,13 @@ html, body {
 .top {
     position: absolute;
     height: 30%;
-    width: 100%;
+    width: 97%;
     top: 30%;
+    right: 2px;
 }
 
 .chara-slot {
-    width: 24%;
+    width: 23%;
     height: 100%;
     float: left;
     margin: 0 4px;
@@ -352,7 +353,7 @@ html, body {
     margin-top: 50px;
 }
 
-.inner-right h3 span {
+.colors {
     letter-spacing: -18px;
     font-weight: 900;
     font-style: italic;
@@ -509,15 +510,204 @@ a.button:active {
         position: absolute;
         bottom: 28%;
         left: 70px;
-        background-color: blue;
     }
     
     .left-status {
-        background-color: blue;
         width: 200px;
         height: 50px;
         position: absolute;
         bottom: 30%;
         left: 250px;
+    }
+
+    .gamegirl {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1000px)  { 
+    .inner-left,
+    .inner-right {
+        float: none;
+        display: block;
+        width: 70%;
+        
+        margin: 0 auto;
+    }
+
+    .inner-left {
+        height: 70%;
+    }
+
+    .inner-right {
+        height: 30%;
+    }
+
+    #messages h1 {
+        font-size: 30px;
+        line-height: 40px;
+        letter-spacing: 1px;
+    }
+
+    .score,
+    .click-start {
+        width: 300px;
+        margin: 10px auto;
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    .click-start {
+        padding-left: 50px;
+    }
+
+    .main-stage {
+        width: 90%;
+        height: 75%;
+        margin: 20px auto;
+    }
+
+    .nintendo {
+        font-size: 70px;
+        letter-spacing: 5px;
+        line-height: 450%;
+    }
+
+    #pikaimg {
+        width: 40%;
+        position: static;
+        margin-left: 80%;
+        margin-top: -10%;
+    }
+
+    .inner-right h3 {
+        font-size: 30px;
+        padding: 5px;
+        letter-spacing: 2px;
+        margin-top: 5px;
+    }
+    
+    .colors {
+        letter-spacing: -10px;
+    }
+
+    .gamegirl {
+        display: inline;
+    }
+
+    a.button {
+        width: 120px;
+        font-size: 20px;
+        line-height: 40px;
+    }
+
+    .wrapper {
+        width: 200px;
+        height: 80px;
+        top: 30%;
+        left: 20%;
+    }
+
+    .container-footer {
+        height: 100%;
+    }
+
+    .bottom-btm {
+        width: 200px;
+
+        top: 20%;
+        left: 85%;
+    }
+
+    #sound {
+        bottom: 50px;
+        right: 9%;
+    }
+
+    .inner-right button {
+        padding: 3px 20px;
+        font-size: 12px;
+    }
+
+
+    .choosing h3{
+        font-size: 30px;
+        line-height: 90px;
+        letter-spacing: 2px;
+    }
+
+    .right-battle {
+        top: 10px;
+    }
+
+    .right-status {
+        width: 200px;
+        height: 50px;
+        top: 50px;
+        right: 160px;
+    }
+
+
+    .left-battle {
+        left: 30px;
+    }
+    
+    .left-status {
+        left: 200px;
+    }
+
+    .status-name {
+        font-size: 15px;
+        line-height: 16px;
+        margin-top: -10px;
+    }
+
+    .status-attack,
+    .status-health {
+        font-size: 12px;
+    }
+
+    .health-bar {
+        margin-top: 17px;
+    }
+
+    .info-center p {
+        font-size: 17px;
+        line-height: 20px;
+    }
+
+    .win-page,
+    .lose-page {
+        height: 100px;
+        font-size: 30px;
+        line-height: 95px;
+    }
+
+    .win-page {
+        border: 5px solid #2b8dfd;
+    }
+    
+    .lose-page {
+        border: 5px solid #802d2d;
+    }
+    
+}
+
+@media screen and (max-width: 830px)  { 
+    .inner-left {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #pikaimg {
+        width: 40%;
+        margin-left: 85%;
+        margin-top: -30px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .container {
+        min-width: 530px;
     }
 }

@@ -146,7 +146,7 @@ $(function() {
     }
 
     let healthBarDisplay = (orgH, newH, div) => {
-        let x = ((newH/ orgH) * 100) - 10
+        let x = ((newH/ orgH) * 100)
         $(div).css("width", `${x}%`)
     }
 
@@ -332,7 +332,6 @@ $(function() {
 
 
     $("#reset").on("click", function() {
-        if (clickOn) {
             win = 0
             lose = 0
             clearAll()
@@ -341,7 +340,6 @@ $(function() {
             setTimeout(() => {
                 startGame()
             }, 1000)
-        }
     })
 
     $("#sound").on("click", function() {
