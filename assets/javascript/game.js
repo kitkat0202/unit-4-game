@@ -91,12 +91,12 @@ $(function() {
 
         $(".video, .gameplay, .choosing, .win-page, .lose-page").addClass("disappear")
         $(".choosing h3").html("Choose your character...")
-        $(".health-bar").css("background-color", "#42d409")
 
         $(".win-score").html(win)
         $(".lose-score").html(lose)
 
         $(".chara-slot, .left-battle, .left-status, .right-battle, .right-status").empty()
+
 
         clickOn = false
         toggler = true
@@ -128,6 +128,7 @@ $(function() {
 
 
     let divDisplay = () => {
+        $(".chara-slot").empty()
         for (let i = 0; i < 4; i++) {
             $(`#chara-${i}`).append($("<img>").attr("src", playChara[i].imgFront))
             $(`#chara-${i}`).append($("<p>").html(playChara[i].name).addClass("chara-name"))
@@ -202,9 +203,8 @@ $(function() {
         $(".left-status .status-attack").html(`ATK: ${playerAttack}`)
 
         $(".info-center").empty()
-        $(".info-center").append($("<p>").text(`Computer Health is now ${computerHealth} HP`))
-        $(".info-center").append($("<p>").text(`Player Health is now ${playerHealth} HP`))
-        $(".info-center").append($("<p>").text(`Player Attack is now ${playerAttack} ATK`))
+        $(".info-center").append($("<p>").text(`Player attacks with ${playerAttack}ATK. Computer Health is now ${computerHealth} HP`))
+        $(".info-center").append($("<p>").text(`Computer attacks with ${computerAttack}ATK. Player Health is now ${playerHealth} HP`))
     }
 
     let checkWinLose = () => {
@@ -230,9 +230,7 @@ $(function() {
                 $(".gameplay").addClass("disappear")
 
             }
-        }
-
-        if (playerHealth <= 0) {
+        }else if (playerHealth <= 0) {
             $(".info-center").empty()
             clickOn = false
             lose++
@@ -332,14 +330,16 @@ $(function() {
 
 
     $("#reset").on("click", function() {
+        if (clickStart) {
             win = 0
             lose = 0
             clearAll()
             stopAudio("bg-audio")
-            
+            clickStart = false
             setTimeout(() => {
                 startGame()
             }, 1000)
+        }
     })
 
     $("#sound").on("click", function() {
