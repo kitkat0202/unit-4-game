@@ -356,7 +356,6 @@ html, body {
     height: 100%;
     width: 29%;
     position: relative;
-    border: 1px solid #000;
 }
 
 .inner-right h3 {
@@ -441,7 +440,6 @@ a.button:active {
     top: 45%;
     left: 50%;
     margin-left: -150px;
-    border: 1px solid #000;
 }
 
 .inner-right button {
@@ -470,7 +468,6 @@ a.button:active {
 #music-div {
     top: auto;
     bottom: 60px;
-    border: 1px solid #000;
 }
 
 #sound {
