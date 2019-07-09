@@ -1,21 +1,17 @@
 # unit-4-game
+Link to hoasted game: 
+https://kitkat0202.github.io/unit-4-game/ <br/>
 RPG Game (Challenge)
 
-<br/><br/>
-# _jQuery_Assignment_
+### _jQuery_Assignment_
 The fourth assignment of Columbia Coding Bootcamp. 
 
-<br/><br/>
-Link to hoasted game: <br/>
-https://kitkat0202.github.io/unit-4-game/
 
-<br/><br/><br/><br/>
 # Finished Product:
-<img src="assets/images/start-pg.jpg" alt="Finished Index" width="500px"/><br/><br/><br/><br/>
-<img src="assets/images/play-pg1.jpg" alt="Finished Index" width="500px"/><br/><br/><br/><br/>
+<img src="assets/images/start-pg.jpg" alt="Finished Index" width="500px"/>
+<img src="assets/images/play-pg1.jpg" alt="Finished Index" width="500px"/>
 <img src="assets/images/play-pg2.jpg" alt="Finished Index" width="500px"/>
 
-<br/><br/><br/><br/>
 # Project INFO:
 
 - Press `START` button to start game
@@ -28,10 +24,6 @@ https://kitkat0202.github.io/unit-4-game/
 - The point of the game is to choose what you think is the pokemon that can defete the rest.
 
 
-
-
-
-<br/><br/><br/><br/>
 # Option Two: RPG Game (Challenge)
 1. Watch the demo.
 
