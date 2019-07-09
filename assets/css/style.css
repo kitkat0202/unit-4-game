@@ -22,6 +22,7 @@ html, body {
     height: 100vh;
     overflow: hidden;
     font-family: var(--status);
+    background-color: #5ece3c;
     color: #fff;
 }
 
@@ -36,7 +37,11 @@ html, body {
 }
 
 .container {
+    position: relative;
     width: 100%;
+    max-width: 1340px;
+    max-height: 930px;
+    margin: 0 auto;
     height: 100%;
     background-color: #5ece3c;
 }
@@ -100,6 +105,7 @@ html, body {
     font-family: var(--display);
     position: relative;
     color: #da5a5a;
+    text-align: center;
 }
 
 
@@ -134,6 +140,12 @@ html, body {
     line-height: 600%;
 }
 
+/* .nintendo p {
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+} */
+
 #poke-red {
     border-radius: 30px;
     width: 100%;
@@ -153,22 +165,20 @@ html, body {
 
 .top {
     position: absolute;
-    height: 30%;
-    width: 97%;
+    height: 40%;
+    width: 100%;
     top: 30%;
-    right: 2px;
 }
 
 .chara-slot {
-    width: 23%;
-    height: 100%;
+    position: relative;
+    width: 25%;
     float: left;
-    margin: 0 4px;
+    box-sizing: border-box;
 }
 
 .chara-slot img {
-    height: 100%;
-    margin-bottom: -10px;
+    width: 100%;
 }
 
 .chara-slot p {
@@ -346,6 +356,7 @@ html, body {
     height: 100%;
     width: 29%;
     position: relative;
+    border: 1px solid #000;
 }
 
 .inner-right h3 {
@@ -423,12 +434,14 @@ a.button:active {
     box-shadow: 0px 0px 0px 0px #3b3b3b;
 }
 
-.bottom-btm {
+.bottom-btm,
+#music-div {
     position: absolute;
     width: 300px;
     top: 45%;
     left: 50%;
     margin-left: -150px;
+    border: 1px solid #000;
 }
 
 .inner-right button {
@@ -439,6 +452,7 @@ a.button:active {
     padding: 5px 30px;
     font-family: var(--status);
     font-size: 16px;
+    width: 110px;
 }
 
 #start {
@@ -453,10 +467,14 @@ a.button:active {
     border: none;
 }
 
-#sound {
-    position: absolute;
+#music-div {
+    top: auto;
     bottom: 60px;
-    right: 50px;
+    border: 1px solid #000;
+}
+
+#sound {
+
 }
 
 #pikaimg {
@@ -467,6 +485,10 @@ a.button:active {
 }
 
 @media screen and (max-width: 1350px)  { 
+    .container {
+        max-height: 740px;
+    }
+
     #messages h1 {
         font-size: 50px;
         line-height: 70px;
@@ -479,11 +501,17 @@ a.button:active {
         letter-spacing: 2px;
     }
 
-    .bottom-btm {
+    .bottom-btm,
+    #music-div {
         width: 250px;
         top: 45%;
         left: 50%;
         margin-left: -125px;
+    }
+
+    #music-div {
+        top: auto;
+        bottom: 60px;
     }
 
     #pikaimg {
@@ -528,6 +556,10 @@ a.button:active {
     .gamegirl {
         display: block;
     }
+
+    .nintendo {
+        line-height: 461px;;
+    }
 }
 
 @media screen and (max-width: 1000px)  { 
@@ -562,10 +594,6 @@ a.button:active {
         letter-spacing: 1px;
     }
 
-    .click-start {
-        padding-left: 50px;
-    }
-
     .main-stage {
         width: 90%;
         height: 75%;
@@ -575,18 +603,20 @@ a.button:active {
     .nintendo {
         font-size: 70px;
         letter-spacing: 5px;
-        line-height: 450%;
+        line-height: 364px;;
     }
 
     #pikaimg {
-        width: 40%;
-        position: static;
-        margin-left: 80%;
-        margin-top: -10%;
+        width: 200px;
+        left: 140px;
+        bottom: -10px;
+        /* margin-left: 80%;
+        margin-top: -10%; */
     }
 
     .inner-right h3 {
         font-size: 30px;
+        text-align: center;
         padding: 5px;
         letter-spacing: 2px;
         margin-top: 5px;
@@ -600,17 +630,18 @@ a.button:active {
         display: inline;
     }
 
-    a.button {
+    /* a.button {
         width: 120px;
         font-size: 20px;
         line-height: 40px;
-    }
+    } */
 
     .wrapper {
         width: 200px;
         height: 80px;
-        top: 30%;
-        left: 20%;
+        top: 50px;
+        left: 0;
+        margin-left: -40px;
     }
 
     .container-footer {
@@ -618,15 +649,20 @@ a.button:active {
     }
 
     .bottom-btm {
-        width: 200px;
-
-        top: 20%;
-        left: 85%;
+        width: 300px;
+        margin: 0;
+        top: 50px;
+        left: auto;
+        right: 0;
     }
 
-    #sound {
-        bottom: 50px;
-        right: 9%;
+    #music-div {
+        width: 110px;
+        margin: 0;
+        top: 100px;
+        left: auto;
+        bottom: auto;
+        right: 0;
     }
 
     .inner-right button {
@@ -641,14 +677,10 @@ a.button:active {
         letter-spacing: 2px;
     }
 
-    .top {
-        width: 100%;
-    }
-
-    .chara-slot {
+    /* .chara-slot {
         width: 24%;
-        margin: 0;
-    }
+        margin: 0 auto;
+    } */
 
     .chara-slot p {
         margin-left: 10px;
@@ -712,10 +744,18 @@ a.button:active {
     .lose-page {
         border: 5px solid #802d2d;
     }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
     
 }
 
-@media screen and (max-width: 830px)  { 
+@media screen and (max-width: 830px)  {
+    .inner-left {
+        height: 420px;
+    }
     .left-status {
         width: 165px;
         height: 50px;
@@ -740,17 +780,28 @@ a.button:active {
     }
 
     #pikaimg {
-        width: 40%;
-        margin-left: 85%;
-        margin-top: -30px;
+        display: none;
+    }
+
+    .bottom-btm {
+        width: 200px;
+    }
+
+    #music-div {
+        width: 81px;
+    }
+
+    .inner-right button {
+        padding: 3px 10px;
+        width: 80px;
+    }
+
+    .nintendo {
+        line-height: 290px;;
     }
 }
 
 @media screen and (max-width: 530px) {
-    .container {
-        min-width: 380px;
-    }
-
     #messages h1 {
         font-size: 20px;
         line-height: 30px;
@@ -793,36 +844,138 @@ a.button:active {
     }
 
     .info-center {
-        padding: 20px 15px;
+        padding: 10px;
     }
 
     .info-center p {
         font-size: 12px;
         line-height: 20px;
+        text-align: center;
     }
 
     .wrapper {
         position: static;
         margin: 20px auto;
-        /* top: 50%; */
     }
 
     .bottom-btm {
-        /* width: 200px; */
+        width: 50%;
         top: initial;
         left: initial;
         bottom: 0px;
-        left: 40%;
+        left: 50%;
     }
 
-    #sound {
-        bottom: 0px;
-        right: -3%;
+    .bottom-btm button:first-child{
+        margin-left: -40px;
     }
 
-    #pikaimg {
-        width: 60%;
-        margin-left: 50%;
-        margin-top: -100px;
+    #music-div {
+        bottom: 0;
+        left: 0;
+        right: auto;
+        top: auto;
+    }
+
+    a.button {
+        margin: 5px auto;
+        width: 90px;
+        font-size: 15px;
+        line-height: 30px;
+        border: 2px outset #7c7c7c;
+        box-shadow: 0px 5px 0px 0px #3b3b3b;
+    }
+
+    a.button:active {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        box-shadow: 0px 0px 0px 0px #3b3b3b;
+    }
+
+    a.button:active .wrapper {
+        margin: 15px auto 55px auto;
+    }
+
+    .nintendo {
+        font-size: 50px;
+        line-height: 290px;;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .inner-left {
+        width: 100%;
+        height: 320px;
+    }
+
+    #messages {
+        margin-top: 10px;
+    }
+
+    .main-stage {
+        width: 288px;
+    }
+
+    .info-center {
+        padding: 10px 2px;
+        width: 288px;
+    }
+
+    .info-center p {
+        font-size: 11px;
+        line-height: 20px;
+    }
+
+    .left-battle {
+        width: 100px;
+        bottom: 13%;
+    }
+
+    .right-battle {
+        width: 100px;
+    }
+
+    .left-status {
+        border-right: 2px solid var(--inner-color);
+        border-bottom: 2px solid var(--inner-color);
+    }
+
+    .right-status {
+        border-left: 2px solid var(--inner-color);
+        border-bottom: 2px solid var(--inner-color);
+    }
+
+    .left-status,
+    .right-status {
+        padding: 2px 10px;
+        height: 38px;
+    }
+
+    .choosing h3 {
+        font-size: 22px;
+        line-height: 90px;
+        letter-spacing: 1;
+    }
+
+    .inner-right {
+        width: 288px;
+        height: 155px;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .wrapper {
+        margin: 10px auto 60px auto;
+        height: auto;
+        /* top: 50%; */
+    }
+
+    .container-footer {
+        height: auto;
+    }
+
+    .nintendo {
+        font-size: 40px;
+        line-height: 220px;;
     }
 }

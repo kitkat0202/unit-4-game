@@ -89,13 +89,13 @@ $(function() {
         $(".nintendo").removeClass("disappear")
         $(".nintendo").html($("<p>").text("Nintendo"))
 
-        $(".video, .gameplay, .choosing, .win-page, .lose-page").addClass("disappear")
+        $(".video, .gameplay, .choosing").addClass("disappear")
         $(".choosing h3").html("Choose your character...")
 
         $(".win-score").html(win)
         $(".lose-score").html(lose)
 
-        $(".chara-slot, .left-battle, .left-status, .right-battle, .right-status").empty()
+        $(".chara-slot, .left-battle, .left-status, .right-battle, .right-status, .info-center").empty()
 
 
         clickOn = false
@@ -214,8 +214,8 @@ $(function() {
             defeted++
             if (defeted === 3) {
                 win++
-                // NEED SOME WIN SCREEN
-                $(".win-page").removeClass("disappear")
+                // $(".win-page").removeClass("disappear")
+                $(".info-center").append($("<p>").text(`You Are A Winner!!!`))
                 setTimeout(() => {
                     clearAll()
                     addToCharaPlay()
@@ -235,7 +235,7 @@ $(function() {
             clickOn = false
             lose++
             //NEED SOME LOSE SCREEN
-            $(".lose-page").removeClass("disappear")
+            $(".info-center").append($("<p>").text(`You Lose...`))
             setTimeout(() => {
                 clearAll()
                 addToCharaPlay()
