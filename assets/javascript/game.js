@@ -173,9 +173,9 @@ $(function() {
             stopAudio("gameboy-on")
         }, 3500)
         setTimeout(() => {
-            playAudio("poke-red")
             $(".nintendo").addClass("disappear")
             $(".video").removeClass("disappear")
+            playAudio("poke-red")
         }, 4000)
         setTimeout(() => {
             $(".video").addClass("disappear")
