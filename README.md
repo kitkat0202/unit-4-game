@@ -25,7 +25,8 @@ The fourth assignment of Columbia Coding Bootcamp.
 
 
 # Option Two: RPG Game (Challenge)
-1. [Watch the demo](../../starwars_demo.mp4).
+1. [Watch the demo](https://youtu.be/ofOiHTqwYFY).
+
 
 2. Here's how the app works:
 
