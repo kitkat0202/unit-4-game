@@ -46,7 +46,9 @@ html, body {
     background-color: #5ece3c;
 }
 
-
+button {
+    outline: none;
+}
 
 
 
@@ -54,7 +56,7 @@ html, body {
 /* Game Screen */
 .inner-left {
     float: left;
-    height: 94%;
+    height: 695px;
     width: 70%;
     background-color: #272727;
     border-radius: 30px;
@@ -559,6 +561,26 @@ a.button:active {
     }
 }
 
+
+@media screen and (max-height: 664px ) and (max-width: 1000px) {
+    #pikaimg {
+        display: none;
+    }
+
+    .wrapper {
+        top: 200px;
+    }
+
+    .bottom-btm {
+        top: 300px;
+    }
+
+    #music-div {
+        top: 400px;
+        bottom: auto;
+    }
+}
+
 @media screen and (max-width: 1000px)  { 
     .inner-left,
     .inner-right {
@@ -672,6 +694,10 @@ a.button:active {
         font-size: 30px;
         line-height: 90px;
         letter-spacing: 2px;
+    }
+
+    .top {
+        top: 30px;
     }
 
     /* .chara-slot {
@@ -853,6 +879,10 @@ a.button:active {
     .wrapper {
         position: static;
         margin: 20px auto;
+    }
+
+    .top {
+        top: 90px;
     }
 
     .bottom-btm {
