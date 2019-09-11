@@ -25,7 +25,7 @@ The fourth assignment of Columbia Coding Bootcamp.
 
 
 # Option Two: RPG Game (Challenge)
-1. [Watch the demo](https://youtu.be/ofOiHTqwYFY).
+1. <a href="https://youtu.be/ofOiHTqwYFY" target="_blank">Watch the demo</a>
 
 
 2. Here's how the app works:
