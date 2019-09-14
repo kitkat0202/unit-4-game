@@ -337,16 +337,20 @@ button {
     height: 28%;
     border-radius: 30px;
     border: 4px dashed var(--inner-color);
-    padding: 20px 50px;
+    padding: 4px 50px;
 }
 
 .info-center p {
-    text-align: left;
-    font-size: 20px;
-    line-height: 50px;
+    font-size: 16px;
+    padding: 11px;
+    letter-spacing: .5px;
     color: var(--inner-color);
+    font-weight: bolder;
 }
 
+.info-center .bot {
+    padding-top: 0;
+}
 
 
 
